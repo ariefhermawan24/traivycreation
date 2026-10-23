@@ -1,0 +1,2890 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>
+      Traivy Center — Katalog Produk Digital & Solusi Kreatif by Traivy Creation
+    </title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono + Caveat (for playful studio script accent) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+              script: ["Caveat", "cursive"],
+            },
+            colors: {
+              traivy: {
+                purple: "#9333EA",
+                indigo: "#4F46E5",
+                cyan: "#06B6D4",
+                dark: "#0B0F19",
+                cardDark: "#131B2E",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+        transition:
+          background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        overflow-x: hidden;
+      }
+
+      /* Smooth theme transitions across cards & borders */
+      *,
+      *::before,
+      *::after {
+        transition-property:
+          background-color, border-color, color, fill, stroke;
+        transition-duration: 220ms;
+        transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* Signature Traivy Creation Gradient */
+      .bg-traivy-gradient {
+        background: linear-gradient(
+          135deg,
+          #a855f7 0%,
+          #6366f1 50%,
+          #06b6d4 100%
+        );
+        background-size: 200% 200%;
+        animation: gradientShift 6s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .text-traivy-gradient {
+        background: linear-gradient(
+          90deg,
+          #a855f7 0%,
+          #6366f1 50%,
+          #06b6d4 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Subtle Studio Mesh Background */
+      .hero-mesh {
+        background-image:
+          radial-gradient(
+            at 85% 15%,
+            rgba(168, 85, 247, 0.15) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 15% 85%,
+            rgba(6, 182, 212, 0.15) 0px,
+            transparent 50%
+          );
+      }
+      .dark .hero-mesh {
+        background-image:
+          radial-gradient(
+            at 85% 15%,
+            rgba(168, 85, 247, 0.24) 0px,
+            transparent 55%
+          ),
+          radial-gradient(
+            at 15% 85%,
+            rgba(6, 182, 212, 0.2) 0px,
+            transparent 55%
+          );
+      }
+
+      /* Hide scrollbar */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Snap scrolling for Reels */
+      .reels-container {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: calc(100vh - 68px);
+        scroll-behavior: smooth;
+      }
+      .reel-item {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        height: calc(100vh - 68px);
+      }
+
+      /* Choreographed Staggered Reveal Keyframes */
+      @keyframes revealUp {
+        0% {
+          opacity: 0;
+          transform: translateY(22px) scale(0.97);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .stagger-item {
+        opacity: 0;
+        animation: revealUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: calc(var(--i, 0) * 55ms);
+      }
+
+      /* Tab View Entrance Transition */
+      @keyframes viewEnter {
+        0% {
+          opacity: 0;
+          transform: translateY(14px) scale(0.992);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .view-animate {
+        animation: viewEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      /* Hero Brush Underline Self-Drawing Animation */
+      .brush-path {
+        stroke-dasharray: 240;
+        stroke-dashoffset: 240;
+        animation: drawBrush 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+      }
+      @keyframes drawBrush {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Floating Studio Badges */
+      @keyframes floatSlow {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-7px) rotate(1deg);
+        }
+      }
+      .animate-float-1 {
+        animation: floatSlow 3.6s ease-in-out infinite;
+      }
+      .animate-float-2 {
+        animation: floatSlow 4.3s ease-in-out 0.7s infinite;
+      }
+      .animate-float-3 {
+        animation: floatSlow 3.9s ease-in-out 1.4s infinite;
+      }
+
+      /* Badge Spring Pop */
+      @keyframes springPop {
+        0% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(1.32);
+        }
+        75% {
+          transform: scale(0.92);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .animate-badge {
+        animation: springPop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* Double-Tap Reel Heart Burst */
+      @keyframes floatUpHeart {
+        0% {
+          opacity: 0;
+          transform: translateY(10px) scale(0.4) rotate(-12deg);
+        }
+        25% {
+          opacity: 1;
+          transform: translateY(-10px) scale(1.25) rotate(8deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-130px) scale(1.5) rotate(-6deg);
+        }
+      }
+      .floating-heart {
+        position: absolute;
+        pointer-events: none;
+        animation: floatUpHeart 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Fly-to-Bundle Particle */
+      .fly-particle {
+        position: fixed;
+        z-index: 9999;
+        pointer-events: none;
+        transition:
+          transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.65s ease;
+      }
+
+      /* Modal & Drawer Choreographed State System (No abrupt display:none) */
+      .modal-overlay {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+          visibility 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .modal-overlay.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      /* Dialog Scale + Slide Up on Mobile / Center on Desktop */
+      .modal-panel-scale {
+        transform: translateY(36px) scale(0.95);
+        opacity: 0;
+        transition:
+          transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .modal-overlay.is-open .modal-panel-scale {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      /* Slide-Over Right Drawer (Bundle Builder) */
+      .drawer-panel-right {
+        transform: translateX(100%);
+        transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .modal-overlay.is-open .drawer-panel-right {
+        transform: translateX(0);
+      }
+
+      /* Card Hover Lift & Subtle Shine */
+      .product-card {
+        transition:
+          transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 0.25s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Shimmer effect for progress bar */
+      @keyframes shimmerMove {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+      .progress-shimmer {
+        background: linear-gradient(
+          90deg,
+          #a855f7 0%,
+          #06b6d4 50%,
+          #a855f7 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmerMove 2.5s linear infinite;
+      }
+
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-900 dark:bg-traivy-dark dark:text-slate-100 antialiased selection:bg-purple-500 selection:text-white pb-28"
+  >
+    <!-- ==================== STICKY TOP HEADER ==================== -->
+    <!-- ==================== STICKY TOP HEADER ==================== -->
+    <header
+      class="sticky top-0 z-40 bg-white/85 dark:bg-traivy-dark/85 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800"
+    >
+      <div
+        class="max-w-5xl mx-auto px-3.5 py-2.5 flex items-center gap-2.5 sm:gap-4"
+      >
+        <!-- Brand Identity matching Traivy Creation -->
+        <div
+          onclick="switchTab('beranda')"
+          class="flex items-center gap-2.5 cursor-pointer shrink-0 group active:scale-95 transition-transform"
+        >
+          <div
+            class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-xs group-hover:border-purple-500 group-hover:rotate-3 transition-all"
+          >
+            <span
+              class="font-script font-bold text-lg leading-none text-slate-900 dark:text-white"
+              >Tc!</span
+            >
+          </div>
+          <div class="hidden sm:block">
+            <div class="flex items-center gap-1">
+              <span
+                class="font-extrabold text-base tracking-tight text-slate-900 dark:text-white"
+                >Traivy</span
+              >
+              <span
+                class="font-medium text-base tracking-tight text-slate-500 dark:text-slate-400"
+                >Center</span
+              >
+            </div>
+            <span
+              class="text-[10px] font-medium text-purple-600 dark:text-cyan-400 block leading-none"
+              >by Traivy Creation</span
+            >
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative flex-1">
+          <div
+            class="flex items-center bg-slate-100 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 focus-within:border-purple-500 dark:focus-within:border-cyan-400 focus-within:bg-white dark:focus-within:bg-slate-900 focus-within:ring-2 focus-within:ring-purple-500/15 rounded-full overflow-hidden transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-magnifying-glass text-xs text-slate-400 pl-3.5 pr-2"
+            ></i>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Cari template, kit branding, preset video, atau web..."
+              class="w-full py-2 px-1 text-xs sm:text-sm bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none"
+              oninput="handleSearch(this.value)"
+            />
+            <button
+              id="clear-search"
+              onclick="clearSearch()"
+              class="hidden text-slate-400 hover:text-slate-600 dark:hover:text-white px-3 active:scale-90 transition-transform"
+            >
+              <i class="fa-solid fa-xmark text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Icons: Bundle Builder (Smart Cart), Chat Studio, Theme Toggle -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <!-- Bundle Builder Button -->
+          <button
+            id="top-bundle-btn"
+            onclick="openBundleModal()"
+            class="relative h-9 px-3 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-full flex items-center gap-1.5 active:scale-95 transition-all"
+            title="Paket Bundle Hemat"
+          >
+            <i
+              class="fa-solid fa-layer-group text-xs text-purple-600 dark:text-cyan-400"
+            ></i>
+            <span
+              class="hidden md:inline text-xs font-semibold text-slate-700 dark:text-slate-200"
+              >Bundle</span
+            >
+            <span
+              id="bundle-badge"
+              class="font-mono text-[11px] font-bold bg-traivy-gradient text-white px-1.5 py-0.2 rounded-full"
+              >2</span
+            >
+          </button>
+
+          <!-- Konsultasi / Chat Studio -->
+          <button
+            onclick="openChatModal()"
+            class="h-9 px-3 rounded-full bg-traivy-gradient text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm hover:opacity-95 active:scale-95 transition-all"
+          >
+            <i class="fa-regular fa-comment-dots text-xs"></i>
+            <span class="hidden sm:inline">Konsultasi</span>
+          </button>
+
+          <!-- Light/Dark Theme Toggle -->
+          <button
+            onclick="toggleTheme()"
+            id="theme-toggle-btn"
+            class="h-9 w-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-amber-300 hover:border-purple-400 active:scale-90 transition-all"
+            aria-label="Ganti Tema"
+          >
+            <i
+              id="theme-icon"
+              class="fa-solid fa-sun text-xs transition-transform duration-500"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+    <main class="max-w-5xl mx-auto">
+      <!-- ==================== TAB 1: BERANDA (CATALOG VIEW) ==================== -->
+      <section id="view-beranda" class="block view-animate">
+        <!-- REDESIGNED HERO BANNER: Matching traivycreation.my.id aesthetic -->
+        <div class="px-3.5 pt-4 pb-2">
+          <div
+            class="hero-mesh relative rounded-3xl overflow-hidden bg-white dark:bg-traivy-cardDark border border-slate-200/90 dark:border-slate-800 p-5 sm:p-7 shadow-sm"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <!-- Left Column: Brand Copywriting -->
+              <div class="md:col-span-7 space-y-3 z-10">
+                <div
+                  style="--i: 0"
+                  class="stagger-item inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-cyan-600 dark:text-cyan-400"
+                >
+                  <span
+                    class="w-5 h-[2px] bg-gradient-to-r from-purple-500 to-cyan-400 inline-block"
+                  ></span>
+                  CREATIVE DIGITAL STOREFRONT
+                </div>
+
+                <h1
+                  style="--i: 1"
+                  class="stagger-item text-2xl sm:text-3xl lg:text-[34px] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.18]"
+                >
+                  Aset & solusi visual yang
+                  <span class="relative inline-block">
+                    <span class="text-traivy-gradient">berani terlihat.</span>
+                    <!-- Animated self-drawing brush underline SVG -->
+                    <svg
+                      class="w-full h-2.5 -mt-1"
+                      viewBox="0 0 220 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        class="brush-path"
+                        d="M3 9.5C58 2.5 154 1.5 217 8.5"
+                        stroke="url(#paint0_linear)"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear"
+                          x1="3"
+                          y1="6"
+                          x2="217"
+                          y2="6"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#A855F7" />
+                          <stop offset="0.5" stop-color="#6366F1" />
+                          <stop offset="1" stop-color="#06B6D4" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </span>
+                </h1>
+
+                <p
+                  style="--i: 2"
+                  class="stagger-item text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl"
+                >
+                  Katalog produk digital siap pakai (<strong
+                    class="text-slate-900 dark:text-white"
+                    >Template, Preset, UI/Web Kit, Brand Guideline</strong
+                  >) & paket layanan kreatif dari
+                  <strong class="text-slate-900 dark:text-white"
+                    >Traivy Creation</strong
+                  >
+                  untuk bantu UMKM, kreator, dan brand tampil profesional.
+                </p>
+
+                <div
+                  style="--i: 3"
+                  class="stagger-item pt-1 flex flex-wrap items-center gap-2.5"
+                >
+                  <button
+                    onclick="
+                      document
+                        .getElementById('catalog-anchor')
+                        .scrollIntoView({ behavior: 'smooth' })
+                    "
+                    class="bg-traivy-gradient text-white font-bold text-xs px-5 py-2.5 rounded-full shadow-md hover:opacity-95 active:scale-95 transition-all flex items-center gap-2"
+                  >
+                    <span>Eksplor Katalog</span>
+                    <i
+                      class="fa-solid fa-arrow-down text-[10px] animate-bounce"
+                    ></i>
+                  </button>
+                  <button
+                    onclick="openBundleModal()"
+                    class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold text-xs px-4 py-2.5 rounded-full active:scale-95 transition-all flex items-center gap-1.5"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-purple-500 animate-ping"
+                    ></span>
+                    <span>Promo Bundle Hemat 15%</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Column: Interactive 3D Tilt Studio Card -->
+              <div
+                style="--i: 2"
+                class="stagger-item md:col-span-5 relative flex items-center justify-center py-2"
+              >
+                <div
+                  id="hero-tilt-card"
+                  onmousemove="handleHeroTilt(event)"
+                  onmouseleave="resetHeroTilt()"
+                  class="relative w-full max-w-[270px] aspect-[4/3] rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700/80 shadow-inner flex flex-col items-center justify-center p-4 text-center transition-transform duration-200 ease-out"
+                  style="transform-style: preserve-3d"
+                >
+                  <!-- Stylized Script Logo -->
+                  <div
+                    class="font-script text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white leading-[0.85] tracking-tight select-none"
+                    style="transform: translateZ(24px)"
+                  >
+                    Traivy<br />Creat!on
+                  </div>
+                  <span
+                    class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 mt-2 tracking-wide"
+                    >Creative Studio • Official Store</span
+                  >
+
+                  <!-- Floating Pill 1: Brand Identity -->
+                  <div
+                    onclick="filterByCategory('Branding')"
+                    class="animate-float-1 cursor-pointer absolute -top-2.5 -right-2 sm:-right-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md rounded-xl px-2.5 py-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-800 dark:text-slate-100 hover:border-purple-400 hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <span>🎨</span> <span>Brand Identity</span>
+                  </div>
+
+                  <!-- Floating Pill 2: Video Content -->
+                  <div
+                    onclick="filterByCategory('Video & Content')"
+                    class="animate-float-2 cursor-pointer absolute bottom-3 -right-2 sm:-right-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md rounded-xl px-2.5 py-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-800 dark:text-slate-100 hover:border-cyan-400 hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <span>🎬</span> <span>Video & Content</span>
+                  </div>
+
+                  <!-- Floating Pill 3: Social Media & Web -->
+                  <div
+                    onclick="filterByCategory('Social Media')"
+                    class="animate-float-3 cursor-pointer absolute -bottom-2.5 -left-2 sm:-left-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md rounded-xl px-2.5 py-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-800 dark:text-slate-100 hover:border-purple-400 hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <span>📱</span> <span>Social Media & Web</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anchor for smooth scroll -->
+        <div id="catalog-anchor"></div>
+
+        <!-- Category Filter Pills (Matching traivycreation.my.id Layanan dropdown) -->
+        <div
+          class="sticky top-[57px] z-30 bg-slate-50/95 dark:bg-traivy-dark/95 backdrop-blur-md py-2.5 px-3.5 border-b border-slate-200/70 dark:border-slate-800/80 mb-3"
+        >
+          <div
+            id="category-pills"
+            class="flex items-center gap-2 overflow-x-auto no-scrollbar"
+          >
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Active Search / Filter Status Bar -->
+        <div id="filter-status" class="hidden px-3.5 mb-3">
+          <div
+            class="bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/60 text-purple-900 dark:text-purple-200 px-3.5 py-2 rounded-xl text-xs flex items-center justify-between"
+          >
+            <span id="filter-status-text" class="font-medium"
+              >Filter Aktif</span
+            >
+            <button
+              onclick="resetAllFilters()"
+              class="text-purple-600 dark:text-cyan-400 hover:underline font-bold ml-2"
+            >
+              Reset Filter
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Grid Listing -->
+        <div class="px-3.5 pb-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5">
+            <div class="flex items-center gap-2">
+              <span
+                class="w-2.5 h-2.5 rounded-full bg-traivy-gradient inline-block"
+              ></span>
+              <h3
+                class="font-bold text-slate-900 dark:text-white text-sm sm:text-base tracking-tight"
+              >
+                Listing Produk Digital & Paket Kreatif
+              </h3>
+              <span
+                id="catalog-count-label"
+                class="font-mono text-xs text-slate-400"
+                >(12)</span
+              >
+            </div>
+
+            <div class="flex items-center gap-2">
+              <select
+                id="type-select"
+                onchange="handleTypeFilter(this.value)"
+                class="text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1.5 text-slate-700 dark:text-slate-200 font-medium focus:outline-none focus:border-purple-500"
+              >
+                <option value="all">Semua Tipe</option>
+                <option value="Aset Digital">
+                  ⚡ Aset Digital (Instant Download)
+                </option>
+                <option value="Paket Jasa">✨ Paket Layanan Studio</option>
+              </select>
+
+              <select
+                id="sort-select"
+                onchange="handleSort(this.value)"
+                class="text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-2.5 py-1.5 text-slate-700 dark:text-slate-200 font-medium focus:outline-none focus:border-purple-500"
+              >
+                <option value="featured">Paling Populer</option>
+                <option value="termurah">Harga Terendah</option>
+                <option value="termahal">Harga Tertinggi</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Cards Container (2 cols on mobile, 3 on tablet, 4 on desktop) -->
+          <div
+            id="product-grid"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4"
+          >
+            <!-- Populated via JS -->
+          </div>
+
+          <!-- Empty State if no products match -->
+          <div
+            id="empty-state"
+            class="hidden bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-800 rounded-2xl p-10 text-center my-4"
+          >
+            <div
+              class="w-12 h-12 bg-purple-100 dark:bg-slate-800 text-purple-600 dark:text-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-3 text-lg"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">
+              Item Tidak Ditemukan
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
+              Coba gunakan kata kunci lain atau lihat semua kategori layanan
+              Traivy Creation.
+            </p>
+            <button
+              onclick="resetAllFilters()"
+              class="bg-traivy-gradient text-white text-xs font-bold px-5 py-2.5 rounded-full hover:opacity-95 active:scale-95 transition"
+            >
+              Tampilkan Semua Katalog
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 2: REELS (CREATIVE PORTFOLIO & ASSET PREVIEW) ==================== -->
+      <section id="view-reels" class="hidden">
+        <div
+          id="reels-feed"
+          class="reels-container no-scrollbar max-w-md mx-auto relative bg-slate-950 border-x border-slate-800 shadow-2xl"
+        >
+          <!-- Populated via JS -->
+        </div>
+      </section>
+
+      <!-- ==================== TAB 3: NOTIFIKASI (ASSET UPDATES & PROJECT LOGS) ==================== -->
+      <section id="view-notifikasi" class="hidden px-3.5 py-4">
+        <div
+          class="bg-white dark:bg-traivy-cardDark rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden mb-4 shadow-xs"
+        >
+          <div
+            class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between"
+          >
+            <div>
+              <h2
+                class="font-bold text-base text-slate-900 dark:text-white tracking-tight"
+              >
+                Notifikasi & Update Aset
+              </h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Info rilis template baru, update file, & progres proyek
+              </p>
+            </div>
+            <button
+              onclick="markAllNotificationsRead()"
+              class="text-xs font-bold text-purple-600 dark:text-cyan-400 hover:underline"
+            >
+              Tandai Dibaca
+            </button>
+          </div>
+
+          <!-- Notifications List -->
+          <div
+            id="notification-list"
+            class="divide-y divide-slate-100 dark:divide-slate-800/80"
+          >
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 4: PROFIL (DIGITAL LIBRARY & PROJECT STATUS) ==================== -->
+      <section id="view-profil" class="hidden px-3.5 py-4 space-y-4">
+        <!-- Customer Identity Card -->
+        <div
+          class="bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 flex items-center justify-between gap-4 shadow-xs"
+        >
+          <div class="flex items-center gap-3.5">
+            <div
+              class="w-14 h-14 rounded-2xl bg-traivy-gradient text-white flex items-center justify-center font-extrabold text-lg shadow-sm"
+            >
+              RN
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2
+                  class="font-bold text-base sm:text-lg text-slate-900 dark:text-white"
+                >
+                  Raka Nugraha
+                </h2>
+                <span
+                  class="text-[10px] font-bold bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 px-2 py-0.5 rounded-full"
+                  >CREATOR PASS</span
+                >
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                raka.brand@gmail.com • Akses Seumur Hidup
+              </p>
+            </div>
+          </div>
+          <button
+            onclick="
+              showToast('Profil & email pengiriman file sudah terverifikasi')
+            "
+            class="h-9 w-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-600 dark:text-slate-300 flex items-center justify-center transition"
+          >
+            <i class="fa-solid fa-gear text-sm"></i>
+          </button>
+        </div>
+
+        <!-- MY DIGITAL VAULT / PURCHASED ASSETS (Instant Access for Digital Goods) -->
+        <div
+          class="bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs"
+        >
+          <div
+            class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-slate-800"
+          >
+            <div>
+              <h3
+                class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2"
+              >
+                <i
+                  class="fa-solid fa-cloud-arrow-down text-purple-600 dark:text-cyan-400"
+                ></i>
+                Library Produk Digital Saya (<span id="vault-count">2</span>)
+              </h3>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                Semua file template & lisensi yang sudah kamu beli bisa diakses
+                kapan saja.
+              </p>
+            </div>
+          </div>
+
+          <!-- Purchased Digital Items List -->
+          <div id="digital-vault-list" class="space-y-2.5">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Saved Items / Wishlist Section -->
+        <div
+          class="bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3
+              class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2"
+            >
+              <i
+                class="fa-regular fa-bookmark text-purple-600 dark:text-cyan-400 text-xs"
+              ></i>
+              Item Disimpan (<span id="wishlist-count">0</span>)
+            </h3>
+          </div>
+          <div
+            id="wishlist-container"
+            class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"
+          >
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Direct Traivy Creation Links -->
+        <div
+          class="bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-800 rounded-2xl divide-y divide-slate-100 dark:divide-slate-800 overflow-hidden text-xs sm:text-sm shadow-xs"
+        >
+          <button
+            onclick="openChatModal()"
+            class="w-full p-3.5 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50 transition text-left"
+          >
+            <div class="flex items-center gap-3">
+              <i
+                class="fa-solid fa-wand-magic-sparkles text-purple-600 dark:text-cyan-400 w-5 text-center"
+              ></i>
+              <span class="font-semibold text-slate-800 dark:text-slate-200"
+                >Request Custom Project (Branding / Website / Konten)</span
+              >
+            </div>
+            <span class="text-xs font-bold text-purple-600 dark:text-cyan-400"
+              >Konsultasi Gratis
+              <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i
+            ></span>
+          </button>
+          <button
+            onclick="
+              showToast(
+                'Semua aset dilengkapi Lisensi Komersial untuk UMKM & Kreator',
+              )
+            "
+            class="w-full p-3.5 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50 transition text-left"
+          >
+            <div class="flex items-center gap-3">
+              <i
+                class="fa-solid fa-certificate text-purple-600 dark:text-cyan-400 w-5 text-center"
+              ></i>
+              <span class="font-semibold text-slate-800 dark:text-slate-200"
+                >Ketentuan Lisensi Penggunaan Komersial</span
+              >
+            </div>
+            <span
+              class="font-mono text-xs text-emerald-600 dark:text-emerald-400 font-bold"
+              >AKTIF <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i
+            ></span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FLOATING SMART BUNDLE DOCK (SMOOTH SLIDE-UP BAR) ==================== -->
+    <div
+      id="floating-bundle-dock"
+      class="fixed bottom-[72px] left-1/2 -translate-x-1/2 z-30 w-[calc(100%-28px)] max-w-md transition-all duration-500 cubic-bezier(0.22, 1, 0.36, 1)"
+    >
+      <div
+        onclick="openBundleModal()"
+        class="cursor-pointer bg-slate-900/95 dark:bg-slate-800/95 backdrop-blur-md text-white border border-white/15 rounded-2xl p-2.5 px-3.5 shadow-xl flex items-center justify-between gap-3 hover:border-purple-400 active:scale-[0.99] transition-all"
+      >
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div
+            class="w-8 h-8 rounded-xl bg-traivy-gradient flex items-center justify-center text-white text-xs shrink-0 shadow-sm"
+          >
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span
+                id="dock-status-label"
+                class="text-[11px] font-bold text-cyan-300"
+                >Diskon Bundle 15% Aktif!</span
+              >
+            </div>
+            <div
+              class="w-36 sm:w-44 h-1.5 bg-slate-700 rounded-full overflow-hidden mt-1"
+            >
+              <div
+                id="dock-progress-bar"
+                class="h-full progress-shimmer rounded-full transition-all duration-500"
+                style="width: 100%"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <div class="text-right">
+            <span class="text-[9px] text-slate-400 block uppercase leading-none"
+              >Total Bundle</span
+            >
+            <span
+              id="dock-total-price"
+              class="font-mono text-xs font-extrabold text-white"
+              >Rp 210.800</span
+            >
+          </div>
+          <span
+            class="bg-white/15 hover:bg-white/25 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-xl transition"
+          >
+            Buka <i class="fa-solid fa-chevron-up text-[9px] ml-0.5"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PRODUCT DETAIL & INSTANT CHECKOUT MODAL ==================== -->
+    <div
+      id="product-modal"
+      onclick="handleBackdropClick(event, closeProductModal)"
+      class="modal-overlay fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
+    >
+      <div
+        class="modal-panel-scale bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-700 w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
+      >
+        <!-- Modal Image Header -->
+        <div
+          class="relative h-56 sm:h-64 bg-slate-900 shrink-0 border-b border-slate-200 dark:border-slate-800 overflow-hidden"
+        >
+          <img
+            id="modal-img"
+            src=""
+            alt="Product"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30"
+          ></div>
+
+          <button
+            onclick="closeProductModal()"
+            class="absolute top-3.5 right-3.5 w-9 h-9 rounded-full bg-slate-900/75 text-white flex items-center justify-center hover:bg-purple-600 active:scale-90 transition-all"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div class="absolute top-3.5 left-3.5 flex items-center gap-2">
+            <span
+              id="modal-sku"
+              class="font-mono text-[11px] bg-slate-900/80 backdrop-blur-md text-white px-2.5 py-1 rounded-full border border-white/15"
+            >
+              TRV-01
+            </span>
+            <span
+              id="modal-type-badge"
+              class="text-[11px] bg-traivy-gradient text-white font-bold px-3 py-1 rounded-full shadow-sm"
+            >
+              ⚡ ASET DIGITAL
+            </span>
+          </div>
+
+          <div
+            class="absolute bottom-3 left-4 right-4 flex items-end justify-between"
+          >
+            <span
+              id="modal-category"
+              class="text-xs font-bold text-cyan-300 uppercase tracking-wider"
+              >BRANDING</span
+            >
+            <span
+              id="modal-format-pill"
+              class="font-mono text-[11px] bg-white/15 backdrop-blur-md text-white px-2.5 py-0.5 rounded-md border border-white/20"
+            >
+              Figma + Canva
+            </span>
+          </div>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-4 sm:p-5 overflow-y-auto space-y-4 flex-1">
+          <div class="flex items-start justify-between gap-3">
+            <h3
+              id="modal-title"
+              class="font-extrabold text-slate-900 dark:text-white text-lg sm:text-xl leading-snug"
+            >
+              Nama Produk
+            </h3>
+          </div>
+
+          <!-- License Tier Selector + Animated Price Box -->
+          <div
+            class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 space-y-3"
+          >
+            <div class="flex items-center justify-between gap-2">
+              <span
+                class="text-[10px] font-bold uppercase tracking-wider text-slate-400"
+                >PILIH LISENSI PENGGUNAAN:</span
+              >
+              <div
+                class="inline-flex p-0.5 rounded-xl bg-slate-200/80 dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700"
+              >
+                <button
+                  type="button"
+                  id="lic-personal-btn"
+                  onclick="switchModalLicense('personal')"
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white dark:bg-slate-900 text-purple-600 dark:text-cyan-400 shadow-2xs transition-all"
+                >
+                  Personal / UMKM
+                </button>
+                <button
+                  type="button"
+                  id="lic-commercial-btn"
+                  onclick="switchModalLicense('commercial')"
+                  class="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-500 dark:text-slate-400 transition-all"
+                >
+                  Agency / Klien Unlimited
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center justify-between pt-2 border-t border-slate-200/70 dark:border-slate-800"
+            >
+              <div>
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block"
+                  >HARGA AKTIF</span
+                >
+                <p
+                  id="modal-price"
+                  class="font-mono text-xl sm:text-2xl font-extrabold text-purple-600 dark:text-cyan-400"
+                >
+                  Rp 0
+                </p>
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full"
+                >
+                  <i class="fa-solid fa-bolt text-[10px]"></i> Akses Instan via
+                  Email/Link
+                </span>
+                <span class="block text-[10px] text-slate-400 mt-1"
+                  >Hemat 15% jika masuk Paket Bundle</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Deliverables / Specs Table -->
+          <div>
+            <h4
+              class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2"
+            >
+              Yang Kamu Dapatkan di Dalam Paket:
+            </h4>
+            <div id="modal-specs" class="grid grid-cols-2 gap-2 text-xs">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <h4
+              class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-1"
+            >
+              Deskripsi Lengkap:
+            </h4>
+            <p
+              id="modal-desc"
+              class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              Deskripsi lengkap produk.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal Sticky Bottom Action -->
+        <div
+          class="p-3.5 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2.5 shrink-0"
+        >
+          <button
+            id="modal-wishlist-btn"
+            class="h-11 w-11 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-purple-500 text-slate-600 dark:text-slate-300 flex items-center justify-center shrink-0 active:scale-90 transition-all"
+            title="Simpan Item"
+          >
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+          <button
+            id="modal-add-bundle-btn"
+            class="px-4 h-11 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold text-xs rounded-2xl active:scale-95 transition-all flex items-center justify-center gap-1.5 shrink-0"
+          >
+            <i
+              class="fa-solid fa-layer-group text-purple-600 dark:text-cyan-400"
+            ></i>
+            + Bundle (-15%)
+          </button>
+          <button
+            id="modal-buy-now-btn"
+            class="flex-1 h-11 bg-traivy-gradient hover:opacity-95 text-white font-bold text-xs rounded-2xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-1.5"
+          >
+            <i class="fa-solid fa-bolt"></i> Beli & Akses Sekarang
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 1-CLICK INSTANT DIGITAL CHECKOUT MODAL ==================== -->
+    <div
+      id="instant-checkout-modal"
+      onclick="handleBackdropClick(event, closeInstantCheckout)"
+      class="modal-overlay fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-panel-scale bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-700 w-full max-w-md rounded-3xl p-5 space-y-4 shadow-2xl"
+      >
+        <div
+          class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3"
+        >
+          <div class="flex items-center gap-2">
+            <span
+              class="w-7 h-7 rounded-lg bg-traivy-gradient text-white flex items-center justify-center text-xs"
+            >
+              <i class="fa-solid fa-bolt"></i>
+            </span>
+            <div>
+              <h3 class="font-bold text-sm text-slate-900 dark:text-white">
+                Instant Digital Checkout
+              </h3>
+              <p class="text-[11px] text-slate-400">
+                Link download & akses langsung dikirim otomatis
+              </p>
+            </div>
+          </div>
+          <button
+            onclick="closeInstantCheckout()"
+            class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-white flex items-center justify-center active:scale-90 transition-all"
+          >
+            <i class="fa-solid fa-xmark text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Selected Item Summary -->
+        <div
+          id="instant-item-box"
+          class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-center gap-3"
+        >
+          <!-- Populated via JS -->
+        </div>
+
+        <!-- Delivery Destination -->
+        <div class="space-y-2.5 text-xs">
+          <div>
+            <label
+              class="font-bold text-slate-700 dark:text-slate-300 block mb-1"
+              >Email Penerima File & Lisensi:</label
+            >
+            <input
+              id="checkout-email"
+              type="email"
+              value="raka.brand@gmail.com"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-purple-500"
+            />
+          </div>
+          <div>
+            <label
+              class="font-bold text-slate-700 dark:text-slate-300 block mb-1"
+              >Metode Pembayaran Instan:</label
+            >
+            <select
+              class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-purple-500"
+            >
+              <option>QRIS Instan (GoPay / OVO / Dana / BCA / Mandiri)</option>
+              <option>Virtual Account BCA / Mandiri / BRI</option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          class="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800"
+        >
+          <div>
+            <span class="text-[10px] font-bold text-slate-400 uppercase block"
+              >TOTAL BAYAR</span
+            >
+            <span
+              id="instant-total-price"
+              class="font-mono text-lg font-extrabold text-purple-600 dark:text-cyan-400"
+              >Rp 0</span
+            >
+          </div>
+          <button
+            id="confirm-instant-pay-btn"
+            class="bg-traivy-gradient text-white font-bold text-xs px-6 py-3 rounded-2xl shadow-md hover:opacity-95 active:scale-95 transition-all"
+          >
+            Bayar & Buka File Sekarang ->
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SMART BUNDLE DRAWER (WHY A CART MAKES SENSE FOR DIGITAL) ==================== -->
+    <div
+      id="bundle-modal"
+      onclick="handleBackdropClick(event, closeBundleModal)"
+      class="modal-overlay fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex justify-end"
+    >
+      <div
+        class="drawer-panel-right bg-white dark:bg-traivy-cardDark border-l border-slate-200 dark:border-slate-800 w-full max-w-md h-full flex flex-col shadow-2xl"
+      >
+        <!-- Bundle Header -->
+        <div
+          class="p-4 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-8 h-8 rounded-xl bg-traivy-gradient text-white flex items-center justify-center text-xs"
+            >
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-slate-900 dark:text-white">
+                Creative Bundle Builder (<span id="bundle-title-count">0</span>)
+              </h3>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                Gabungkan min. 2 aset digital untuk diskon 15%
+              </p>
+            </div>
+          </div>
+          <button
+            onclick="closeBundleModal()"
+            class="w-8 h-8 rounded-full bg-slate-200/70 dark:bg-slate-800 text-slate-500 flex items-center justify-center hover:text-slate-900 dark:hover:text-white active:scale-90 transition-all"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Dynamic Bundle Discount Progress Bar -->
+        <div
+          class="px-4 py-3 bg-purple-50/90 dark:bg-purple-950/50 border-b border-purple-100 dark:border-purple-900/50 space-y-2"
+        >
+          <div
+            id="bundle-promo-bar"
+            class="text-xs flex items-center justify-between"
+          >
+            <!-- Populated via JS -->
+          </div>
+          <div
+            class="w-full h-2 bg-purple-200/70 dark:bg-slate-800 rounded-full overflow-hidden"
+          >
+            <div
+              id="bundle-progress-fill"
+              class="h-full progress-shimmer rounded-full transition-all duration-500 ease-out"
+              style="width: 100%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Bundle Items List -->
+        <div
+          id="bundle-items-container"
+          class="flex-1 overflow-y-auto p-3.5 space-y-2.5"
+        >
+          <!-- Populated via JS -->
+        </div>
+
+        <!-- Bundle Footer Instant Delivery Checkout -->
+        <div
+          class="p-4 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 space-y-3"
+        >
+          <div class="space-y-1 text-xs">
+            <div
+              class="flex justify-between text-slate-500 dark:text-slate-400"
+            >
+              <span>Subtotal Aset:</span>
+              <span id="bundle-subtotal" class="font-mono">Rp 0</span>
+            </div>
+            <div
+              class="flex justify-between text-emerald-600 dark:text-emerald-400 font-semibold"
+            >
+              <span>Diskon Bundle Kreatif (15%):</span>
+              <span id="bundle-discount" class="font-mono">- Rp 0</span>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800"
+          >
+            <div>
+              <p class="text-[10px] font-bold text-slate-400 uppercase">
+                TOTAL BUNDLE
+              </p>
+              <p
+                id="bundle-total-price"
+                class="font-mono text-lg font-extrabold text-purple-600 dark:text-cyan-400"
+              >
+                Rp 0
+              </p>
+            </div>
+            <button
+              onclick="checkoutBundle()"
+              class="bg-traivy-gradient hover:opacity-95 text-white font-bold text-xs px-5 py-3.5 rounded-2xl shadow-md transition active:scale-95"
+            >
+              Checkout Bundle ->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== DIRECT STUDIO CONSULTATION CHAT MODAL ==================== -->
+    <div
+      id="chat-modal"
+      onclick="handleBackdropClick(event, closeChatModal)"
+      class="modal-overlay fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
+    >
+      <div
+        class="modal-panel-scale bg-white dark:bg-traivy-cardDark border border-slate-200 dark:border-slate-700 w-full max-w-md rounded-t-3xl sm:rounded-3xl h-[75vh] flex flex-col overflow-hidden shadow-2xl"
+      >
+        <div
+          class="p-3.5 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2.5">
+            <div
+              class="w-9 h-9 rounded-xl bg-traivy-gradient text-white flex items-center justify-center font-script font-bold text-lg"
+            >
+              Tc!
+            </div>
+            <div>
+              <h4
+                class="font-bold text-sm text-slate-900 dark:text-white leading-tight"
+              >
+                Tim Kreatif Traivy Creation
+              </h4>
+              <span
+                class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5"
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+                ></span>
+                Online • Konsultasi Produk & Jasa
+              </span>
+            </div>
+          </div>
+          <button
+            onclick="closeChatModal()"
+            class="w-8 h-8 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-400 flex items-center justify-center active:scale-90 transition-all"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div
+          id="chat-messages"
+          class="flex-1 p-3.5 overflow-y-auto space-y-3 bg-slate-100/70 dark:bg-slate-950 text-xs"
+        >
+          <div
+            class="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-slate-700 dark:text-slate-200 leading-relaxed shadow-2xs"
+          >
+            Halo kak! Selamat datang di
+            <strong class="text-purple-600 dark:text-cyan-400"
+              >Traivy Center by Traivy Creation</strong
+            >
+            🎨✨<br /><br />
+            Mau tanya soal kecocokan template (Canva/Figma/CapCut/Web) atau mau
+            diskusi paket custom <strong>Branding & Social Media</strong> buat
+            brand kamu?
+          </div>
+        </div>
+
+        <form
+          onsubmit="sendChatMessage(event)"
+          class="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2"
+        >
+          <input
+            id="chat-input"
+            type="text"
+            placeholder="Tulis pesan ke studio Traivy Creation..."
+            class="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full px-4 py-2.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-purple-500"
+          />
+          <button
+            type="submit"
+            class="h-9 px-4 rounded-full bg-traivy-gradient text-white font-bold text-xs shrink-0 hover:opacity-95 active:scale-95 transition-all"
+          >
+            Kirim
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div
+      id="toast"
+      class="fixed top-16 left-1/2 -translate-x-1/2 -translate-y-6 opacity-0 pointer-events-none z-50 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-semibold px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 transition-all duration-300 cubic-bezier(0.22, 1, 0.36, 1)"
+    >
+      <span
+        class="w-2 h-2 rounded-full bg-cyan-400 dark:bg-purple-600 animate-ping"
+      ></span>
+      <span id="toast-message">Berhasil!</span>
+    </div>
+
+    <!-- ==================== FIXED BOTTOM NAVIGATION BAR (4 TABS) ==================== -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-traivy-dark/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-5xl mx-auto relative grid grid-cols-4 h-16">
+        <!-- Smooth Sliding Active Top Indicator Bar -->
+        <div
+          id="nav-slider"
+          class="absolute top-0 left-0 w-1/4 h-[3px] flex justify-center transition-transform duration-300 ease-out"
+          style="transform: translateX(0%)"
+        >
+          <span class="w-12 h-full rounded-b-full bg-traivy-gradient"></span>
+        </div>
+
+        <!-- Tab 1: Beranda -->
+        <button
+          onclick="switchTab('beranda')"
+          id="nav-beranda"
+          class="flex flex-col items-center justify-center gap-1 text-purple-600 dark:text-cyan-400 font-bold active:scale-90 transition-all"
+        >
+          <i
+            class="fa-solid fa-compass text-base transition-transform duration-300"
+          ></i>
+          <span class="text-[11px]">Beranda</span>
+        </button>
+
+        <!-- Tab 2: Reels -->
+        <button
+          onclick="switchTab('reels')"
+          id="nav-reels"
+          class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-medium active:scale-90 transition-all relative"
+        >
+          <i
+            class="fa-solid fa-clapperboard text-base transition-transform duration-300"
+          ></i>
+          <span class="text-[11px]">Reels</span>
+        </button>
+
+        <!-- Tab 3: Notifikasi -->
+        <button
+          onclick="switchTab('notifikasi')"
+          id="nav-notifikasi"
+          class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-medium active:scale-90 transition-all relative"
+        >
+          <span
+            id="notif-nav-badge"
+            class="absolute top-2 right-7 sm:right-16 bg-traivy-gradient text-white font-mono text-[9px] font-bold px-1.5 rounded-full"
+            >2</span
+          >
+          <i
+            class="fa-regular fa-bell text-base transition-transform duration-300"
+          ></i>
+          <span class="text-[11px]">Notifikasi</span>
+        </button>
+
+        <!-- Tab 4: Profil -->
+        <button
+          onclick="switchTab('profil')"
+          id="nav-profil"
+          class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 font-medium active:scale-90 transition-all"
+        >
+          <i
+            class="fa-regular fa-folder-open text-base transition-transform duration-300"
+          ></i>
+          <span class="text-[11px]">Profil & File</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+      // --- 1. TRAIVY CREATION DIGITAL PRODUCTS & CREATIVE PACKAGES ---
+      // Categories match the exact dropdown in traivycreation.my.id:
+      // Branding, Graphic Design, Social Media, Video & Content, Website
+      const products = [
+        {
+          id: 1,
+          sku: "TRV-BRD-01",
+          name: "Brand Identity & Guideline Book Master Kit (UMKM & Startup)",
+          price: 149000,
+          category: "Branding",
+          productType: "Aset Digital",
+          format: "Figma + Canva + PDF",
+          specs: {
+            Halaman: "45+ Slide Brand Guideline",
+            Software: "Canva Gratis & Figma",
+            Lisensi: "Komersial & Klien",
+            Bonus: "Briefing Questionnaire",
+          },
+          image:
+            "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&auto=format&fit=crop&q=80",
+          desc: "Template buku panduan identitas visual profesional (Logo usage, color palette, tipografi, tone of voice, dan mockup stationery). Tinggal ganti logo dan warna brand kamu dalam hitungan menit.",
+        },
+        {
+          id: 2,
+          sku: "TRV-SOC-01",
+          name: "120+ Viral Instagram Carousel & Story Pack — Bold Studio Edition",
+          price: 99000,
+          category: "Social Media",
+          productType: "Aset Digital",
+          format: "Canva + Figma",
+          specs: {
+            "Total Desain": "80 Feed Carousel + 40 Story",
+            Rasio: "4:5 Portrait & 9:16 Story",
+            Akses: "100% Editable di Canva",
+            Copywriting: "Termasuk Hook Prompt",
+          },
+          image:
+            "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format&fit=crop&q=80",
+          desc: "Koleksi template konten sosial media dengan gaya visual berani khas Traivy Creation. Dirancang khusus untuk meningkatkan saves, shares, dan konversi penjualan produk/jasa.",
+        },
+        {
+          id: 3,
+          sku: "TRV-VID-01",
+          name: "Creator Motion & LUTs Bundle — Reels/TikTok Dynamic Editing Pack",
+          price: 125000,
+          category: "Video & Content",
+          productType: "Aset Digital",
+          format: "CapCut + Premiere + VN",
+          specs: {
+            "Color LUTs": "25+ Cinematic & Clean Studio",
+            "SFX & Transisi": "150+ Sound Effects & Overlay",
+            Typography: "30 Animated Hook Titles",
+            Kompatibel: "HP (CapCut/VN) & Desktop",
+          },
+          image:
+            "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=80",
+          desc: "Paket lengkap aset editing video pendek agar Reels dan TikTok brand kamu terlihat diedit oleh studio profesional. Termasuk efek suara transisi whoosh, pop, dan preset warna jernih.",
+        },
+        {
+          id: 4,
+          sku: "TRV-GFX-01",
+          name: "3D & Clay Tactile Graphic Elements + Mockup Kemasan UMKM",
+          price: 115000,
+          category: "Graphic Design",
+          productType: "Aset Digital",
+          format: "PNG Transparan + PSD + Figma",
+          specs: {
+            Resolusi: "4000 x 4000px (300 DPI)",
+            "Isi Aset": "200+ Ikon 3D & Badge",
+            Mockup: "15 Mockup Pouch, Box & Cup",
+            Background: "Transparan Siap Tempel",
+          },
+          image:
+            "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&auto=format&fit=crop&q=80",
+          desc: "Kumpulan aset elemen desain grafis 3D modern dan mockup kemasan produk F&B/Skincare untuk membuat poster promosi dan katalog produk yang langsung mencuri perhatian.",
+        },
+        {
+          id: 5,
+          sku: "TRV-WEB-01",
+          name: "Landing Page & Katalog UMKM High-Conversion UI/Code Kit",
+          price: 189000,
+          category: "Website",
+          productType: "Aset Digital",
+          format: "HTML Tailwind + Figma + Elementor",
+          specs: {
+            Halaman: "6 Variasi Landing Page",
+            Fitur: "Direct WA Checkout & Katalog",
+            Performa: "99/100 Google PageSpeed",
+            Panduan: "Video Tutorial Setup Lengkap",
+          },
+          image:
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
+          desc: "Template website landing page & katalog produk yang sudah dioptimasi untuk konversi iklan Meta/TikTok Ads. Tersedia dalam versi kode HTML/Tailwind maupun template Elementor WordPress.",
+        },
+        {
+          id: 6,
+          sku: "TRV-SOC-02",
+          name: "Notion Social Media Content Planner + 300 AI Copywriting Bank",
+          price: 79000,
+          category: "Social Media",
+          productType: "Aset Digital",
+          format: "Notion Template + PDF",
+          specs: {
+            Sistem: "Kalender Konten & Ide Bank",
+            Copywriting: "300+ Hook, Story & CTA",
+            Analitik: "Tracker Pertumbuhan Akun",
+            Lisensi: "Sekali Bayar Seumur Hidup",
+          },
+          image:
+            "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&auto=format&fit=crop&q=80",
+          desc: "Gak perlu bingung lagi besok mau posting apa. Sistem manajemen konten di Notion lengkap dengan ratusan formula hook copywriting bahasa Indonesia yang terbukti menghasilkan engagement.",
+        },
+        {
+          id: 7,
+          sku: "TRV-BRD-02",
+          name: "Paket Starter Visual Branding UMKM (Logo + Palet + Desain Kemasan)",
+          price: 850000,
+          category: "Branding",
+          productType: "Paket Jasa",
+          format: "Done-For-You Studio Service",
+          specs: {
+            Deliverables: "3 Opsi Konsep Logo Orisinal",
+            "File Master": "AI, EPS, PDF, SVG & PNG",
+            Bonus: "Mini Brand Guideline + Kartu",
+            Revisi: "3x Revisi Terarah (5 Hari)",
+          },
+          image:
+            "https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&auto=format&fit=crop&q=80",
+          desc: "Paket layanan resmi dikerjakan langsung oleh desainer Traivy Creation. Kami bangunkan identitas visual brand kamu dari nol sampai siap cetak dan tampil beda dari kompetitor.",
+        },
+        {
+          id: 8,
+          sku: "TRV-GFX-02",
+          name: "85+ Poster Promo, Menu Kafe & Banner Kampanye Siap Cetak",
+          price: 89000,
+          category: "Graphic Design",
+          productType: "Aset Digital",
+          format: "Canva + Illustrator + PSD",
+          specs: {
+            "Format Cetak": "CMYK Siap Cetak & RGB",
+            Ukuran: "A4, A3, X-Banner & IG Poster",
+            Font: "Link Font Gratis Komersial",
+            Tema: "F&B, Fashion, Jasa & Event",
+          },
+          image:
+            "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&auto=format&fit=crop&q=80",
+          desc: "Template desain grafis promosi untuk kebutuhan cetak maupun digital. Cocok untuk pemilik kafe, kuliner, distro, dan agensi yang butuh bikin materi promo cepat.",
+        },
+        {
+          id: 9,
+          sku: "TRV-VID-02",
+          name: "100+ Viral Video Script & Storyboard Blueprint untuk Kreator/Brand",
+          price: 69000,
+          category: "Video & Content",
+          productType: "Aset Digital",
+          format: "Notion + Google Docs + PDF",
+          specs: {
+            "Jumlah Script": "100 Struktur Naskah Video",
+            Kategori: "Edukasi, Soft-Selling, Review",
+            "Visual Guide": "Panduan Angle Pengambilan",
+            Update: "Gratis Update Batch Baru",
+          },
+          image:
+            "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&auto=format&fit=crop&q=80",
+          desc: "Contekan naskah dan struktur storyboard detik-demi-detik untuk membuat video Reels/TikTok yang menahan penonton dari 3 detik pertama hingga klik keranjang/link bio.",
+        },
+        {
+          id: 10,
+          sku: "TRV-WEB-02",
+          name: "Paket Pembuatan Website Company Profile / Landing Page Terima Beres",
+          price: 1450000,
+          category: "Website",
+          productType: "Paket Jasa",
+          format: "Full Custom Web Service",
+          specs: {
+            "Sudah Termasuk": "Desain UI/UX Eksklusif",
+            Fitur: "SEO Basic, WhatsApp & Form",
+            Responsif: "Mobile, Tablet & Desktop",
+            Garansi: "Maintenance & Support 3 Bulan",
+          },
+          image:
+            "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&auto=format&fit=crop&q=80",
+          desc: "Layanan pembuatan website profesional oleh tim developer & UI/UX Traivy Creation. Desain disesuaikan penuh dengan karakter visual brand kamu.",
+        },
+      ];
+
+      // --- 2. REELS SHOWCASE DATA (CREATIVE MOTION & CASE STUDIES) ---
+      const reelsData = [
+        {
+          id: 201,
+          productId: 1,
+          tag: "BRANDING SHOWCASE",
+          title: "Transformasi Rebranding Kopi Lokal & Guideline Kit",
+          caption:
+            "Intip isi 45+ halaman Brand Guideline Master Kit kami. Bikin presentasi ke klien atau penataan visual UMKM langsung naik kelas.",
+          likes: 1240,
+          bgImage:
+            "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=80",
+        },
+        {
+          id: 202,
+          productId: 2,
+          tag: "SOCIAL MEDIA KIT",
+          title: "Bikin Carousel Instagram 7 Slide Cuma 5 Menit di Canva",
+          caption:
+            "Nggak perlu pusing mikirin layout dari nol. Tinggal drag-and-drop foto produkmu ke dalam 120+ Bold Studio Carousel Pack.",
+          likes: 980,
+          bgImage:
+            "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop&q=80",
+        },
+        {
+          id: 203,
+          productId: 3,
+          tag: "VIDEO & LUTS PREVIEW",
+          title: "Before vs After Pakai Creator Motion & LUTs Bundle",
+          caption:
+            "Rekaman HP biasa langsung kelihatan crisp dan sinematik ditambah animasi teks hook & sound effect transisi studio.",
+          likes: 1520,
+          bgImage:
+            "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format&fit=crop&q=80",
+        },
+        {
+          id: 204,
+          productId: 5,
+          tag: "WEB TEMPLATE DEMO",
+          title: "Speed Test Landing Page Katalog UMKM (Skor 99/100)",
+          caption:
+            "Desain clean, animasi mulus, dan tombol checkout langsung ke WhatsApp. Cocok banget buat naikin ROAS iklan.",
+          likes: 875,
+          bgImage:
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+        },
+      ];
+
+      // --- 3. NOTIFICATIONS DATA ---
+      let notifications = [
+        {
+          id: 1,
+          code: "UPDATE FILE // v2.4",
+          title: "Penambahan 20 Slide Baru di Brand Guideline Kit",
+          message:
+            "Buat kamu yang sudah punya Brand Identity Master Kit, 20 halaman mockup baru sudah ditambahkan gratis di menu Profil & File!",
+          time: "15 MENIT LALU",
+          unread: true,
+        },
+        {
+          id: 2,
+          code: "PROMO BUNDLE // HEMAT 15%",
+          title: "Gabungkan 2 Aset Digital Otomatis Diskon 15%",
+          message:
+            "Masukkan minimal 2 produk apa saja ke dalam Bundle Builder untuk mendapatkan potongan harga otomatis.",
+          time: "2 JAM LALU",
+          unread: true,
+        },
+        {
+          id: 3,
+          code: "TRAIVY STUDIO // INFO",
+          title: "Slot Custom Branding & Website Bulan Ini Tersedia",
+          message:
+            "Tim kreatif Traivy Creation membuka 4 slot pengerjaan identitas visual & website UMKM untuk bulan ini.",
+          time: "KEMARIN",
+          unread: false,
+        },
+      ];
+
+      // --- 4. STATE VARIABLES ---
+      const categories = [
+        "Semua",
+        "Branding",
+        "Graphic Design",
+        "Social Media",
+        "Video & Content",
+        "Website",
+      ];
+      let activeCategory = "Semua";
+      let activeTypeFilter = "all";
+      let searchQuery = "";
+      let currentSort = "featured";
+      let currentModalProduct = null;
+      let currentModalLicense = "personal";
+
+      // Bundle items (Smart Cart for multi-asset discount)
+      let bundleCart = [products[0], products[1]];
+
+      // Purchased items in user's Digital Vault
+      let purchasedVault = [
+        {
+          product: products[2],
+          purchaseDate: "18 Okt 2026",
+          licenseKey: "TRV-LIC-8839-VID01",
+          fileSize: "420 MB (ZIP / Google Drive)",
+        },
+        {
+          product: products[5],
+          purchaseDate: "04 Okt 2026",
+          licenseKey: "TRV-LIC-4102-SOC02",
+          fileSize: "Akses Notion + PDF",
+        },
+      ];
+
+      let wishlistIds = [4, 5];
+
+      // Helper: Format Rupiah
+      // Helper: Format Rupiah
+      function formatRupiah(num) {
+        return "Rp " + Math.round(num).toLocaleString("id-ID");
+      }
+
+      // Helper: Smooth Animated Number Counter
+      function animateNumberValue(
+        element,
+        targetValue,
+        duration = 380,
+        prefix = "Rp ",
+      ) {
+        if (!element) return;
+        const currentText = element.textContent.replace(/[^\d]/g, "");
+        const startValue = parseInt(currentText, 10) || 0;
+        if (startValue === Math.round(targetValue)) {
+          element.textContent =
+            prefix + Math.round(targetValue).toLocaleString("id-ID");
+          return;
+        }
+        const startTime = performance.now();
+        function step(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+          const val = Math.round(
+            startValue + (targetValue - startValue) * eased,
+          );
+          element.textContent = prefix + val.toLocaleString("id-ID");
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      // Helper: 3D Parallax Tilt on Hero Card
+      function handleHeroTilt(e) {
+        const card = document.getElementById("hero-tilt-card");
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = (x / rect.width - 0.5) * 14;
+        const rotateX = (0.5 - y / rect.height) * 14;
+        card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      }
+
+      function resetHeroTilt() {
+        const card = document.getElementById("hero-tilt-card");
+        if (card) {
+          card.style.transform = `perspective(700px) rotateX(0deg) rotateY(0deg) scale(1)`;
+        }
+      }
+
+      // Helper: Backdrop Click Handler for Smooth Modals
+      function handleBackdropClick(event, closeFn) {
+        if (event.target === event.currentTarget) {
+          closeFn();
+        }
+      }
+
+      // --- 5. INITIALIZATION ---
+      window.onload = function () {
+        renderCategories();
+        renderProducts();
+        renderReels();
+        renderNotifications();
+        renderDigitalVault();
+        renderWishlist();
+        updateBundleBadge();
+      };
+
+      // --- 6. THEME TOGGLE (Light Studio Default <-> Dark Studio) ---
+      function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById("theme-icon");
+        icon.style.transform = "rotate(180deg) scale(0.7)";
+        setTimeout(() => {
+          if (html.classList.contains("dark")) {
+            html.classList.remove("dark");
+            icon.className =
+              "fa-solid fa-sun text-xs transition-transform duration-500";
+            showToast("Mode Studio Terang Aktif");
+          } else {
+            html.classList.add("dark");
+            icon.className =
+              "fa-solid fa-moon text-xs transition-transform duration-500";
+            showToast("Mode Studio Gelap Aktif");
+          }
+          icon.style.transform = "rotate(0deg) scale(1)";
+        }, 140);
+      }
+
+      // --- 7. RENDER CATEGORIES & PRODUCTS ---
+      function renderCategories() {
+        const container = document.getElementById("category-pills");
+        const categoryIcons = {
+          Semua: "fa-border-all",
+          Branding: "fa-palette",
+          "Graphic Design": "fa-pen-nib",
+          "Social Media": "fa-hashtag",
+          "Video & Content": "fa-film",
+          Website: "fa-laptop-code",
+        };
+
+        container.innerHTML = categories
+          .map((cat) => {
+            const isActive = cat === activeCategory;
+            return `
+                    <button 
+                        onclick="filterByCategory('${cat}')"
+                        class="shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all duration-300 ${
+                          isActive
+                            ? "bg-traivy-gradient text-white shadow-sm scale-[1.03]"
+                            : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-purple-400"
+                        }">
+                        <i class="fa-solid ${categoryIcons[cat]} text-[11px]"></i>
+                        <span>${cat}</span>
+                    </button>
+                `;
+          })
+          .join("");
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById("product-grid");
+        const emptyState = document.getElementById("empty-state");
+        const filterStatus = document.getElementById("filter-status");
+        const filterStatusText = document.getElementById("filter-status-text");
+        const countLabel = document.getElementById("catalog-count-label");
+
+        let filtered = products.filter((p) => {
+          const matchCategory =
+            activeCategory === "Semua" ? true : p.category === activeCategory;
+          const matchType =
+            activeTypeFilter === "all"
+              ? true
+              : p.productType === activeTypeFilter;
+          const matchSearch =
+            p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.format.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.category.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchCategory && matchType && matchSearch;
+        });
+
+        if (currentSort === "termurah") {
+          filtered.sort((a, b) => a.price - b.price);
+        } else if (currentSort === "termahal") {
+          filtered.sort((a, b) => b.price - a.price);
+        } else {
+          filtered.sort((a, b) => a.id - b.id);
+        }
+
+        countLabel.textContent = `(${filtered.length})`;
+
+        if (
+          searchQuery !== "" ||
+          activeCategory !== "Semua" ||
+          activeTypeFilter !== "all"
+        ) {
+          filterStatus.classList.remove("hidden");
+          filterStatusText.innerHTML = `Menampilkan <strong>${filtered.length} item</strong> di kategori <strong>${activeCategory}</strong> ${searchQuery ? `dengan kata kunci "${searchQuery}"` : ""}`;
+        } else {
+          filterStatus.classList.add("hidden");
+        }
+
+        if (filtered.length === 0) {
+          grid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          return;
+        }
+
+        emptyState.classList.add("hidden");
+        grid.innerHTML = filtered
+          .map((p, index) => {
+            const isService = p.productType === "Paket Jasa";
+            const inBundle = bundleCart.some((b) => b.id === p.id);
+            return `
+                <div style="--i: ${index}" onclick="openProductModal(${p.id})" class="stagger-item product-card bg-white dark:bg-traivy-cardDark rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-800 hover:border-purple-400 dark:hover:border-cyan-400/60 shadow-2xs hover:shadow-xl flex flex-col cursor-pointer group">
+                    <!-- Thumbnail -->
+                    <div class="relative aspect-[4/3] bg-slate-900 overflow-hidden border-b border-slate-100 dark:border-slate-800">
+                        <img src="${p.image}" alt="${p.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent"></div>
+                        
+                        <!-- Top Left Product Type Pill -->
+                        <span class="absolute top-2.5 left-2.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs ${
+                          isService
+                            ? "bg-amber-400 text-slate-950"
+                            : "bg-slate-900/85 backdrop-blur-md text-white border border-white/15"
+                        }">
+                            ${isService ? "✨ PAKET JASA" : "⚡ INSTANT FILE"}
+                        </span>
+
+                        <!-- Bottom Left Software/Format Pill -->
+                        <span class="absolute bottom-2 left-2.5 font-mono text-[10px] font-semibold bg-white/95 dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 px-2 py-0.5 rounded-md shadow-2xs">
+                            ${p.format}
+                        </span>
+                    </div>
+
+                    <!-- Card Details -->
+                    <div class="p-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-purple-600 dark:text-cyan-400 uppercase tracking-wider">${p.category}</span>
+                            <h4 class="text-xs sm:text-sm text-slate-800 dark:text-slate-100 font-bold line-clamp-2 leading-snug mt-0.5 group-hover:text-purple-600 dark:group-hover:text-cyan-400 transition-colors">
+                                ${p.name}
+                            </h4>
+                        </div>
+
+                        <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
+                            <div class="flex items-baseline justify-between">
+                                <span class="font-mono text-slate-900 dark:text-white font-extrabold text-xs sm:text-sm">${formatRupiah(p.price)}</span>
+                                <span class="text-[10px] text-slate-400">Sekali bayar</span>
+                            </div>
+
+                            <!-- Dual Action: Instant Buy vs Add to Bundle -->
+                            <div class="flex items-center gap-1.5">
+                                <button 
+                                    onclick="triggerInstantBuy(event, ${p.id})" 
+                                    class="flex-1 h-8 rounded-xl bg-traivy-gradient text-white font-bold text-[11px] flex items-center justify-center gap-1 shadow-2xs hover:opacity-95 active:scale-95 transition-all">
+                                    <i class="fa-solid fa-bolt text-[9px]"></i> Beli
+                                </button>
+                                <button 
+                                    onclick="quickToggleBundle(event, ${p.id})" 
+                                    class="h-8 px-2.5 rounded-xl border text-[11px] font-bold flex items-center justify-center gap-1 active:scale-90 transition-all ${
+                                      inBundle
+                                        ? "bg-purple-100 dark:bg-purple-950/80 border-purple-400 text-purple-700 dark:text-purple-300"
+                                        : "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-purple-400"
+                                    }"
+                                    title="Masukkan ke Paket Bundle (-15%)">
+                                    <i class="fa-solid ${inBundle ? "fa-check" : "fa-layer-group"} text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+          })
+          .join("");
+      }
+
+      // --- 8. REELS RENDER & INTERACTION ---
+      function renderReels() {
+        const container = document.getElementById("reels-feed");
+        container.innerHTML = reelsData
+          .map((reel, idx) => {
+            const prod = products.find((p) => p.id === reel.productId);
+            return `
+                    <div class="reel-item relative w-full overflow-hidden flex items-end select-none" ondblclick="triggerReelHeart(event)">
+                        <img src="${reel.bgImage}" alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover brightness-75">
+                        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-slate-950/95"></div>
+
+                        <!-- Top Bar inside Reel -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                            <div class="flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                <span class="text-[11px] text-white font-bold">${reel.tag}</span>
+                            </div>
+                            <span class="font-mono text-xs text-slate-300 bg-slate-900/80 border border-white/10 px-2.5 py-1 rounded-full">
+                                0${idx + 1} / 0${reelsData.length}
+                            </span>
+                        </div>
+
+                        <!-- Right Floating Action Buttons -->
+                        <div class="absolute right-3.5 bottom-32 z-20 flex flex-col items-center gap-4">
+                            <button onclick="toggleLikeReel(this)" class="flex flex-col items-center gap-1 group">
+                                <div class="w-11 h-11 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-white/15 flex items-center justify-center text-white group-hover:border-cyan-400 transition">
+                                    <i class="fa-solid fa-heart text-lg"></i>
+                                </div>
+                                <span class="text-[11px] font-semibold text-slate-200">${reel.likes}</span>
+                            </button>
+
+                            <button onclick="toggleWishlist(${prod.id})" class="flex flex-col items-center gap-1 group">
+                                <div class="w-11 h-11 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-white/15 flex items-center justify-center text-white group-hover:border-cyan-400 transition">
+                                    <i class="fa-regular fa-bookmark text-lg"></i>
+                                </div>
+                                <span class="text-[11px] font-semibold text-slate-200">Simpan</span>
+                            </button>
+
+                            <button onclick="showToast('Link preview disalin ke clipboard!')" class="flex flex-col items-center gap-1 group">
+                                <div class="w-11 h-11 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-white/15 flex items-center justify-center text-white group-hover:border-cyan-400 transition">
+                                    <i class="fa-solid fa-share-nodes text-base"></i>
+                                </div>
+                                <span class="text-[11px] font-semibold text-slate-200">Share</span>
+                            </button>
+                        </div>
+
+                        <!-- Bottom Info & Featured Product Floating Card -->
+                        <div class="relative z-10 w-full p-4 space-y-3">
+                            <div class="pr-14">
+                                <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">TRAIVY CREATION // SHOWCASE</span>
+                                <h4 class="font-bold text-base text-white mt-0.5">${reel.title}</h4>
+                                <p class="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">
+                                    ${reel.caption}
+                                </p>
+                            </div>
+
+                            <!-- Featured Product Box inside Reel -->
+                            <div onclick="openProductModal(${prod.id})" class="bg-slate-900/95 backdrop-blur-md border border-white/15 hover:border-cyan-400 p-3 rounded-2xl flex items-center gap-3 cursor-pointer transition">
+                                <img src="${prod.image}" alt="${prod.name}" class="w-12 h-12 rounded-xl object-cover shrink-0 border border-white/10">
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-mono text-[10px] text-cyan-400">${prod.format}</span>
+                                    <h5 class="text-xs font-bold text-white truncate">${prod.name}</h5>
+                                    <span class="font-mono text-xs font-extrabold text-white">${formatRupiah(prod.price)}</span>
+                                </div>
+                                <button onclick="triggerInstantBuy(event, ${prod.id})" class="bg-traivy-gradient text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shrink-0 transition">
+                                    Ambil File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          })
+          .join("");
+      }
+
+      function toggleLikeReel(btn) {
+        const icon = btn.querySelector("i");
+        if (icon.classList.contains("text-pink-500")) {
+          icon.classList.remove("text-pink-500");
+        } else {
+          icon.classList.add("text-pink-500", "animate-badge");
+          showToast("Disukai!");
+        }
+      }
+
+      function triggerReelHeart(event) {
+        const container = event.currentTarget;
+        const heart = document.createElement("i");
+        heart.className =
+          "fa-solid fa-heart text-pink-500 text-5xl floating-heart z-30";
+        const rect = container.getBoundingClientRect();
+        heart.style.left = event.clientX - rect.left - 24 + "px";
+        heart.style.top = event.clientY - rect.top - 24 + "px";
+        container.appendChild(heart);
+        setTimeout(() => heart.remove(), 900);
+      }
+
+      // --- 9. NOTIFICATIONS RENDER & ACTIONS ---
+      function renderNotifications() {
+        const list = document.getElementById("notification-list");
+        const badge = document.getElementById("notif-nav-badge");
+        const unreadCount = notifications.filter((n) => n.unread).length;
+
+        if (unreadCount > 0) {
+          badge.textContent = unreadCount;
+          badge.classList.remove("hidden");
+        } else {
+          badge.classList.add("hidden");
+        }
+
+        list.innerHTML = notifications
+          .map(
+            (n, index) => `
+                <div style="--i: ${index}" onclick="readNotification(${n.id})" class="stagger-item p-4 flex items-start gap-3.5 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/40 transition ${n.unread ? "bg-purple-50/40 dark:bg-purple-950/20" : ""}">
+                    <div class="w-2.5 h-2.5 rounded-full mt-1.5 shrink-0 ${n.unread ? "bg-traivy-gradient" : "bg-slate-300 dark:bg-slate-700"}"></div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between gap-2 font-mono text-[10px]">
+                            <span class="font-bold text-purple-600 dark:text-cyan-400">${n.code}</span>
+                            <span class="text-slate-400">${n.time}</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-900 dark:text-white mt-0.5">${n.title}</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">${n.message}</p>
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      function readNotification(id) {
+        const item = notifications.find((n) => n.id === id);
+        if (item) {
+          item.unread = false;
+          renderNotifications();
+          showToast(item.title);
+        }
+      }
+
+      function markAllNotificationsRead() {
+        notifications.forEach((n) => (n.unread = false));
+        renderNotifications();
+        showToast("Semua notifikasi ditandai sudah dibaca");
+      }
+
+      // --- 10. DIGITAL VAULT (PURCHASED FILES IN PROFILE) & WISHLIST ---
+      function renderDigitalVault() {
+        const container = document.getElementById("digital-vault-list");
+        const countEl = document.getElementById("vault-count");
+        countEl.textContent = purchasedVault.length;
+
+        container.innerHTML = purchasedVault
+          .map(
+            (item) => `
+                <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <img src="${item.product.image}" alt="${item.product.name}" class="w-12 h-12 rounded-xl object-cover shrink-0">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="font-mono text-[10px] text-purple-600 dark:text-cyan-400 font-bold">${item.licenseKey}</span>
+                                <span class="text-[10px] text-slate-400">• ${item.purchaseDate}</span>
+                            </div>
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">${item.product.name}</h4>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400">${item.product.format} (${item.fileSize})</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button onclick="copyLicense('${item.licenseKey}')" class="px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:border-purple-400 transition">
+                            <i class="fa-regular fa-copy mr-1"></i> Lisensi
+                        </button>
+                        <button onclick="showToast('Mengunduh paket file ' + '${item.product.sku}...')" class="px-3.5 py-2 rounded-xl bg-traivy-gradient text-white text-xs font-bold shadow-xs hover:opacity-95 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-download text-[10px]"></i> Akses File
+                        </button>
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      function copyLicense(key) {
+        const temp = document.createElement("textarea");
+        temp.value = key;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        showToast(`Kode Lisensi ${key} disalin!`);
+      }
+
+      function toggleWishlist(productId) {
+        const idx = wishlistIds.indexOf(productId);
+        if (idx > -1) {
+          wishlistIds.splice(idx, 1);
+          showToast("Dihapus dari daftar simpan");
+        } else {
+          wishlistIds.push(productId);
+          showToast("Disimpan ke Profil");
+        }
+        renderWishlist();
+      }
+
+      function renderWishlist() {
+        const container = document.getElementById("wishlist-container");
+        const countEl = document.getElementById("wishlist-count");
+        countEl.textContent = wishlistIds.length;
+
+        if (wishlistIds.length === 0) {
+          container.innerHTML = `<p class="text-xs text-slate-400 col-span-2 py-2">Belum ada item yang disimpan.</p>`;
+          return;
+        }
+
+        const savedProducts = products.filter((p) =>
+          wishlistIds.includes(p.id),
+        );
+        container.innerHTML = savedProducts
+          .map(
+            (p) => `
+                <div onclick="openProductModal(${p.id})" class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-purple-400 flex items-center gap-3 cursor-pointer transition">
+                    <img src="${p.image}" alt="${p.name}" class="w-12 h-12 rounded-lg object-cover shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <span class="text-[10px] font-bold text-purple-600 dark:text-cyan-400 block">${p.category}</span>
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">${p.name}</h4>
+                        <span class="font-mono text-xs text-slate-700 dark:text-slate-300 font-bold">${formatRupiah(p.price)}</span>
+                    </div>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      // --- 11. NAVIGATION TAB SWITCHING ---
+      function switchTab(tabName) {
+        const tabs = ["beranda", "reels", "notifikasi", "profil"];
+        const tabIndex = tabs.indexOf(tabName);
+        const slider = document.getElementById("nav-slider");
+        if (slider && tabIndex > -1) {
+          slider.style.transform = `translateX(${tabIndex * 100}%)`;
+        }
+
+        // Show floating bundle dock only on Beranda when bundle has items
+        const dock = document.getElementById("floating-bundle-dock");
+        if (dock) {
+          if (tabName === "beranda" && bundleCart.length > 0) {
+            dock.classList.remove(
+              "translate-y-24",
+              "opacity-0",
+              "pointer-events-none",
+            );
+          } else {
+            dock.classList.add(
+              "translate-y-24",
+              "opacity-0",
+              "pointer-events-none",
+            );
+          }
+        }
+
+        tabs.forEach((t) => {
+          const view = document.getElementById(`view-${t}`);
+          const nav = document.getElementById(`nav-${t}`);
+          const icon = nav.querySelector("i");
+          if (t === tabName) {
+            view.classList.remove("hidden", "view-animate");
+            void view.offsetWidth; // trigger reflow for smooth entrance animation
+            view.classList.add("block", "view-animate");
+            nav.classList.remove("text-slate-400", "font-medium");
+            nav.classList.add(
+              "text-purple-600",
+              "dark:text-cyan-400",
+              "font-bold",
+            );
+            if (icon) {
+              icon.classList.add("-translate-y-0.5", "scale-110");
+            }
+          } else {
+            view.classList.add("hidden");
+            view.classList.remove("block", "view-animate");
+            nav.classList.remove(
+              "text-purple-600",
+              "dark:text-cyan-400",
+              "font-bold",
+            );
+            nav.classList.add("text-slate-400", "font-medium");
+            if (icon) {
+              icon.classList.remove("-translate-y-0.5", "scale-110");
+            }
+          }
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // --- 12. FILTER & SEARCH LOGIC ---
+
+      // Fungsi helper scroll yang efisien menggunakan parameter langsung
+      function scrollToProductGrid(currentCount) {
+        const grid = document.getElementById("product-grid");
+        if (!grid) return;
+
+        const rect = grid.getBoundingClientRect();
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const elementTop = rect.top + scrollTop;
+
+        const screenWidth = window.innerWidth;
+        let offset = 90; // Default Desktop
+
+        if (screenWidth <= 576) {
+          // --- UKURAN MOBILE (HP) ---
+          offset = currentCount <= 4 ? 70 : 220;
+        } else if (screenWidth <= 992) {
+          // --- UKURAN TABLET ---
+          offset = currentCount <= 4 ? 80 : 200;
+        } else {
+          // --- UKURAN DESKTOP / LAPTOP ---
+          offset = currentCount <= 4 ? 100 : 185;
+        }
+
+        window.scrollTo({
+          top: elementTop - offset,
+          behavior: "smooth",
+        });
+      }
+
+      function filterByCategory(category) {
+        activeCategory = category;
+        switchTab("beranda");
+        renderCategories();
+        renderProducts();
+        scrollToProductGrid();
+      }
+
+      function handleTypeFilter(val) {
+        activeTypeFilter = val;
+        renderProducts();
+        scrollToProductGrid();
+      }
+
+      // --- DEBOUNCE HELPER ---
+      // Fungsi pembantu untuk menunda eksekusi sampai user selesai mengetik
+      function debounce(func, wait) {
+        let timeout;
+        return function (...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      }
+
+      // Fungsi proses utama pencarian & render (dijalankan setelah jeda ketikan selesai)
+      const processSearch = debounce(function (val) {
+        searchQuery = val.trim();
+        switchTab("beranda");
+
+        // Asumsi renderProducts() mengembalikan array hasil filter atau variabel penampung
+        const result = renderProducts();
+        const count = result
+          ? result.length
+          : typeof filteredProducts !== "undefined"
+            ? filteredProducts.length
+            : products.length;
+
+        scrollToProductGrid(count);
+      }, 300); // Jeda 300ms (pas dengan kebiasaan jeda mengetik user)
+
+      // Fungsi yang dipicu langsung saat event oninput di input search
+      function handleSearch(val) {
+        searchQuery = val.trim();
+        const clearBtn = document.getElementById("clear-search");
+
+        // Tombol "Clear" merespons instan seketika
+        if (searchQuery.length > 0) {
+          clearBtn.classList.remove("hidden");
+        } else {
+          clearBtn.classList.add("hidden");
+        }
+
+        // Memanggil proses pencarian dengan jeda (debounce)
+        processSearch(val);
+      }
+
+      function clearSearch() {
+        const input = document.getElementById("search-input");
+        input.value = "";
+        handleSearch("");
+      }
+
+      function handleSort(sortVal) {
+        currentSort = sortVal;
+        renderProducts();
+        scrollToProductGrid();
+      }
+
+      function resetAllFilters() {
+        activeCategory = "Semua";
+        activeTypeFilter = "all";
+        searchQuery = "";
+        document.getElementById("search-input").value = "";
+        document.getElementById("type-select").value = "all";
+        document.getElementById("clear-search").classList.add("hidden");
+        renderCategories();
+        renderProducts();
+        scrollToProductGrid();
+      }
+
+      // --- 13. PRODUCT DETAIL MODAL & 1-CLICK INSTANT CHECKOUT ---
+      function openProductModal(productId) {
+        const p = products.find((item) => item.id === productId);
+        if (!p) return;
+        currentModalProduct = p;
+        currentModalLicense = "personal";
+
+        document.getElementById("modal-img").src = p.image;
+        document.getElementById("modal-sku").textContent = p.sku;
+        document.getElementById("modal-type-badge").textContent =
+          p.productType === "Paket Jasa"
+            ? "✨ PAKET LAYANAN STUDIO"
+            : "⚡ ASET DIGITAL INSTAN";
+        document.getElementById("modal-category").textContent = p.category;
+        document.getElementById("modal-format-pill").textContent = p.format;
+        document.getElementById("modal-title").textContent = p.name;
+        document.getElementById("modal-price").textContent = formatRupiah(
+          p.price,
+        );
+        document.getElementById("modal-desc").textContent = p.desc;
+
+        updateLicenseButtonsUI();
+
+        // Render Deliverables Specs with staggered animation
+        const specsContainer = document.getElementById("modal-specs");
+        specsContainer.innerHTML = Object.entries(p.specs)
+          .map(
+            ([k, v], i) => `
+                <div style="--i: ${i}" class="stagger-item bg-slate-50 dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/70 dark:border-slate-800">
+                    <span class="text-[10px] font-semibold text-slate-400 block">${k}</span>
+                    <span class="text-slate-800 dark:text-slate-200 font-bold">${v}</span>
+                </div>
+            `,
+          )
+          .join("");
+
+        document.getElementById("modal-wishlist-btn").onclick = () =>
+          toggleWishlist(p.id);
+
+        document.getElementById("modal-add-bundle-btn").onclick = (e) => {
+          flyToBundleEffect(e.currentTarget);
+          addToBundle(p.id);
+          closeProductModal();
+          setTimeout(() => openBundleModal(), 240);
+        };
+
+        document.getElementById("modal-buy-now-btn").onclick = () => {
+          closeProductModal();
+          setTimeout(() => openInstantCheckout(p.id), 220);
+        };
+
+        document.getElementById("product-modal").classList.add("is-open");
+      }
+
+      function switchModalLicense(tier) {
+        if (!currentModalProduct) return;
+        currentModalLicense = tier;
+        updateLicenseButtonsUI();
+        const targetPrice =
+          tier === "commercial"
+            ? Math.round(currentModalProduct.price * 1.8)
+            : currentModalProduct.price;
+        animateNumberValue(
+          document.getElementById("modal-price"),
+          targetPrice,
+          350,
+        );
+      }
+
+      function updateLicenseButtonsUI() {
+        const pBtn = document.getElementById("lic-personal-btn");
+        const cBtn = document.getElementById("lic-commercial-btn");
+        if (currentModalLicense === "personal") {
+          pBtn.className =
+            "px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white dark:bg-slate-900 text-purple-600 dark:text-cyan-400 shadow-2xs transition-all";
+          cBtn.className =
+            "px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-500 dark:text-slate-400 transition-all";
+        } else {
+          cBtn.className =
+            "px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white dark:bg-slate-900 text-purple-600 dark:text-cyan-400 shadow-2xs transition-all";
+          pBtn.className =
+            "px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-500 dark:text-slate-400 transition-all";
+        }
+      }
+
+      function closeProductModal() {
+        document.getElementById("product-modal").classList.remove("is-open");
+      }
+
+      function triggerInstantBuy(event, productId) {
+        event.stopPropagation();
+        currentModalLicense = "personal";
+        openInstantCheckout(productId);
+      }
+
+      function openInstantCheckout(productId) {
+        const p = products.find((item) => item.id === productId);
+        if (!p) return;
+        const finalPrice =
+          currentModalProduct &&
+          currentModalProduct.id === p.id &&
+          currentModalLicense === "commercial"
+            ? Math.round(p.price * 1.8)
+            : p.price;
+
+        document.getElementById("instant-item-box").innerHTML = `
+                <img src="${p.image}" alt="${p.name}" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                <div class="min-w-0 flex-1">
+                    <span class="text-[10px] font-bold text-purple-600 dark:text-cyan-400">${p.category} • ${p.format}</span>
+                    <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">${p.name}</h4>
+                    <span class="font-mono text-xs font-extrabold text-slate-700 dark:text-slate-300">${formatRupiah(finalPrice)}</span>
+                </div>
+            `;
+        animateNumberValue(
+          document.getElementById("instant-total-price"),
+          finalPrice,
+          360,
+        );
+
+        document.getElementById("confirm-instant-pay-btn").onclick = () => {
+          completeDigitalPurchase([p], finalPrice);
+          closeInstantCheckout();
+        };
+
+        document
+          .getElementById("instant-checkout-modal")
+          .classList.add("is-open");
+      }
+
+      function closeInstantCheckout() {
+        document
+          .getElementById("instant-checkout-modal")
+          .classList.remove("is-open");
+      }
+
+      // --- 14. SMART BUNDLE BUILDER LOGIC (DISCOUNT FOR 2+ DIGITAL ITEMS) ---
+      function flyToBundleEffect(sourceEl) {
+        const targetEl = document.getElementById("top-bundle-btn");
+        if (!sourceEl || !targetEl) return;
+        const sRect = sourceEl.getBoundingClientRect();
+        const tRect = targetEl.getBoundingClientRect();
+
+        const dot = document.createElement("div");
+        dot.className =
+          "fly-particle w-5 h-5 rounded-full bg-traivy-gradient shadow-lg flex items-center justify-center text-white text-[10px]";
+        dot.innerHTML = '<i class="fa-solid fa-layer-group"></i>';
+        dot.style.left = `${sRect.left + sRect.width / 2 - 10}px`;
+        dot.style.top = `${sRect.top + sRect.height / 2 - 10}px`;
+        document.body.appendChild(dot);
+
+        requestAnimationFrame(() => {
+          const dx =
+            tRect.left + tRect.width / 2 - (sRect.left + sRect.width / 2);
+          const dy =
+            tRect.top + tRect.height / 2 - (sRect.top + sRect.height / 2);
+          dot.style.transform = `translate(${dx}px, ${dy}px) scale(0.35)`;
+          dot.style.opacity = "0.2";
+        });
+
+        setTimeout(() => dot.remove(), 660);
+      }
+
+      function quickToggleBundle(event, productId) {
+        event.stopPropagation();
+        const exists = bundleCart.findIndex((b) => b.id === productId);
+        if (exists > -1) {
+          bundleCart.splice(exists, 1);
+          showToast("Dihapus dari Paket Bundle");
+        } else {
+          flyToBundleEffect(event.currentTarget);
+          addToBundle(productId);
+        }
+        updateBundleBadge();
+        renderProducts();
+      }
+
+      function addToBundle(productId) {
+        const p = products.find((item) => item.id === productId);
+        if (!p) return;
+        if (!bundleCart.some((b) => b.id === productId)) {
+          bundleCart.push(p);
+          updateBundleBadge();
+          renderProducts();
+          showToast(`${p.sku} ditambahkan ke Paket Bundle!`);
+        } else {
+          showToast("Item ini sudah ada di Paket Bundle kamu");
+        }
+      }
+
+      function updateBundleBadge() {
+        const badge = document.getElementById("bundle-badge");
+        badge.textContent = bundleCart.length;
+        badge.classList.remove("animate-badge");
+        void badge.offsetWidth;
+        badge.classList.add("animate-badge");
+
+        // Update Floating Bundle Dock smoothly
+        const dock = document.getElementById("floating-bundle-dock");
+        const dockLabel = document.getElementById("dock-status-label");
+        const dockBar = document.getElementById("dock-progress-bar");
+        const dockPrice = document.getElementById("dock-total-price");
+
+        if (!dock) return;
+        const isBeranda = !document
+          .getElementById("view-beranda")
+          .classList.contains("hidden");
+        if (bundleCart.length === 0 || !isBeranda) {
+          dock.classList.add(
+            "translate-y-24",
+            "opacity-0",
+            "pointer-events-none",
+          );
+        } else {
+          dock.classList.remove(
+            "translate-y-24",
+            "opacity-0",
+            "pointer-events-none",
+          );
+          const subtotal = bundleCart.reduce((s, item) => s + item.price, 0);
+          const hasDisc = bundleCart.length >= 2;
+          const finalTotal = hasDisc ? subtotal * 0.85 : subtotal;
+
+          dockLabel.textContent = hasDisc
+            ? `🎉 Diskon Bundle 15% Aktif (${bundleCart.length} Item)`
+            : `Tambah 1 item lagi untuk Diskon 15%!`;
+          dockBar.style.width = hasDisc ? "100%" : "50%";
+          animateNumberValue(dockPrice, finalTotal, 380);
+        }
+      }
+
+      function openBundleModal() {
+        renderBundleItems();
+        document.getElementById("bundle-modal").classList.add("is-open");
+      }
+
+      function closeBundleModal() {
+        document.getElementById("bundle-modal").classList.remove("is-open");
+      }
+
+      function renderBundleItems() {
+        const container = document.getElementById("bundle-items-container");
+        const titleCount = document.getElementById("bundle-title-count");
+        const promoBar = document.getElementById("bundle-promo-bar");
+        const progressFill = document.getElementById("bundle-progress-fill");
+        const subtotalEl = document.getElementById("bundle-subtotal");
+        const discountEl = document.getElementById("bundle-discount");
+        const totalPriceEl = document.getElementById("bundle-total-price");
+
+        titleCount.textContent = bundleCart.length;
+
+        if (bundleCart.length === 0) {
+          promoBar.innerHTML = `<span class="text-slate-500">Pilih minimal 2 aset digital untuk mengaktifkan diskon bundle 15%.</span>`;
+          if (progressFill) progressFill.style.width = "0%";
+          container.innerHTML = `
+                    <div class="text-center py-16 stagger-item">
+                        <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center mx-auto mb-2">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <p class="text-sm font-bold text-slate-700 dark:text-slate-300">Bundle Masih Kosong</p>
+                        <p class="text-xs text-slate-400 mt-1 px-6">Klik tombol layer pada produk untuk menggabungkan beberapa template sekaligus dan hemat 15%.</p>
+                    </div>
+                `;
+          subtotalEl.textContent = "Rp 0";
+          discountEl.textContent = "- Rp 0";
+          totalPriceEl.textContent = "Rp 0";
+          return;
+        }
+
+        const hasDiscount = bundleCart.length >= 2;
+        if (progressFill) {
+          progressFill.style.width = hasDiscount ? "100%" : "50%";
+        }
+
+        if (hasDiscount) {
+          promoBar.innerHTML = `
+                    <span class="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check"></i> Diskon Bundle Kreatif 15% Aktif!
+                    </span>
+                    <span class="font-mono text-[11px] font-bold text-purple-600 dark:text-cyan-400">${bundleCart.length} Item</span>
+                `;
+        } else {
+          promoBar.innerHTML = `
+                    <span class="font-semibold text-purple-700 dark:text-purple-300">
+                        Tambah <strong>1 item lagi</strong> supaya diskon 15% langsung aktif!
+                    </span>
+                    <span class="font-mono text-[11px] font-bold text-slate-400">1 / 2</span>
+                `;
+        }
+
+        let subtotal = 0;
+        container.innerHTML = bundleCart
+          .map((item, idx) => {
+            subtotal += item.price;
+            return `
+                    <div style="--i: ${idx}" class="stagger-item bg-slate-50 dark:bg-slate-900 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 flex gap-3 items-center">
+                        <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <span class="text-[10px] font-bold text-purple-600 dark:text-cyan-400">${item.category} • ${item.format}</span>
+                            <h4 class="text-xs font-bold text-slate-900 dark:text-white truncate">${item.name}</h4>
+                            <p class="font-mono text-xs font-extrabold text-slate-700 dark:text-slate-300 mt-0.5">${formatRupiah(item.price)}</p>
+                        </div>
+                        <button onclick="removeBundleItem(${idx})" class="w-8 h-8 rounded-xl hover:bg-red-50 dark:hover:bg-red-950/40 text-slate-400 hover:text-red-500 text-xs flex items-center justify-center active:scale-90 transition">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+          })
+          .join("");
+
+        const discountAmount = hasDiscount ? subtotal * 0.15 : 0;
+        const finalTotal = subtotal - discountAmount;
+
+        animateNumberValue(subtotalEl, subtotal, 320);
+        animateNumberValue(discountEl, discountAmount, 320, "- Rp ");
+        animateNumberValue(totalPriceEl, finalTotal, 380);
+      }
+
+      function removeBundleItem(index) {
+        bundleCart.splice(index, 1);
+        updateBundleBadge();
+        renderBundleItems();
+        renderProducts();
+      }
+
+      function checkoutBundle() {
+        if (bundleCart.length === 0) {
+          showToast("Pilih item ke dalam Bundle terlebih dahulu");
+          return;
+        }
+        const subtotal = bundleCart.reduce((sum, item) => sum + item.price, 0);
+        const discount = bundleCart.length >= 2 ? subtotal * 0.15 : 0;
+        const finalTotal = subtotal - discount;
+
+        const itemsBought = [...bundleCart];
+        bundleCart = [];
+        updateBundleBadge();
+        closeBundleModal();
+        renderProducts();
+
+        completeDigitalPurchase(itemsBought, finalTotal);
+      }
+
+      function completeDigitalPurchase(itemsArray, totalPaid) {
+        itemsArray.forEach((prod) => {
+          if (!purchasedVault.some((v) => v.product.id === prod.id)) {
+            purchasedVault.unshift({
+              product: prod,
+              purchaseDate: "Baru Saja",
+              licenseKey: "TRV-LIC-" + Math.floor(1000 + Math.random() * 9000),
+              fileSize: prod.format,
+            });
+          }
+        });
+
+        renderDigitalVault();
+
+        notifications.unshift({
+          id: Date.now(),
+          code: "AKSES AKTIF // INSTANT DOWNLOAD",
+          title: `${itemsArray.length} Produk Digital Berhasil Dibuka!`,
+          message: `Pembayaran ${formatRupiah(totalPaid)} berhasil. Semua file & lisensi sudah masuk ke menu Profil & File.`,
+          time: "BARU SAJA",
+          unread: true,
+        });
+        renderNotifications();
+
+        showToast(
+          "Pembayaran Berhasil! File siap diakses di tab Profil & File.",
+        );
+        switchTab("profil");
+      }
+
+      // --- 15. STUDIO CHAT MODAL & HELPERS ---
+      function openChatModal() {
+        document.getElementById("chat-modal").classList.add("is-open");
+      }
+
+      function closeChatModal() {
+        document.getElementById("chat-modal").classList.remove("is-open");
+      }
+
+      function sendChatMessage(e) {
+        e.preventDefault();
+        const input = document.getElementById("chat-input");
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        const box = document.getElementById("chat-messages");
+        box.innerHTML += `
+                <div class="stagger-item bg-traivy-gradient text-white font-medium p-3 rounded-2xl rounded-tr-none max-w-[85%] ml-auto shadow-xs">
+                    ${msg}
+                </div>
+            `;
+        input.value = "";
+        box.scrollTop = box.scrollHeight;
+
+        setTimeout(() => {
+          box.innerHTML += `
+                    <div class="stagger-item bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-slate-700 dark:text-slate-200 leading-relaxed shadow-2xs">
+                        Siap kak! Untuk semua produk bertanda <strong class="text-purple-600 dark:text-cyan-400">⚡ Instant File</strong> bisa langsung diunduh otomatis detik itu juga setelah checkout. Kalau mau custom desain untuk brand kamu, tim Traivy Creation siap bantu!
+                    </div>
+                `;
+          box.scrollTop = box.scrollHeight;
+        }, 650);
+      }
+
+      let toastTimeout;
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        document.getElementById("toast-message").textContent = message;
+        toast.classList.remove(
+          "-translate-y-6",
+          "opacity-0",
+          "pointer-events-none",
+        );
+        toast.classList.add("translate-y-0", "opacity-100");
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove("translate-y-0", "opacity-100");
+          toast.classList.add(
+            "-translate-y-6",
+            "opacity-0",
+            "pointer-events-none",
+          );
+        }, 2600);
+      }
+    </script>
+  </body>
+</html>
